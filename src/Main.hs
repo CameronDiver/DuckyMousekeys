@@ -53,6 +53,7 @@ mainLoop path = do
     eventBytes <- B.hGet handle packetSize
     event      <- readEvent eventBytes
     let parsedEvent = parseEvent event
+    print parsedEvent
     mapM_ handleEvent parsedEvent
 
 handleEvent :: MouseEvent -> IO ()
