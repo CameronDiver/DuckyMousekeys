@@ -48,7 +48,7 @@ readParts = do
 
 intEventToEvent :: IntEvent -> Event
 intEventToEvent (_, _, t, c, v) =
-  Event (evCodeToString $ fromIntegral t) (fromIntegral c) (fromIntegral v)
+  Event (parseEvCode $ fromIntegral t) (fromIntegral c) (fromIntegral v)
 
 parseEvent :: Event -> Maybe MouseEvent
 parseEvent (Event EV_REL 0 v) = Just $ MouseMove $ MouseX $ fromIntegral v
