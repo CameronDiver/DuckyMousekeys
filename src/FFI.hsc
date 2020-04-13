@@ -16,7 +16,7 @@ grabDeviceFile fd = c_ioctl (unsafeCoerce fd) (#const EVIOCGRAB) 1
 -- Incomplete...
 data EvCode = EV_REL | EV_SYN | EV_KEY | EV_ABS | EV_MSC | EV_SW |Unknown deriving Show
 
-evCodeToString code = case code of
+parseEvCode code = case code of
   (#const EV_REL) -> EV_REL
   (#const EV_SYN) -> EV_SYN
   (#const EV_KEY) -> EV_KEY
